@@ -1,0 +1,13 @@
+.textWithButtons {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.textWithButtons,
+.leftButtons,
+.rightButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
