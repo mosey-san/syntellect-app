@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { getCountryByName } from '../../api/apiService';
 import { TextInputStore } from './../../UI/TextInput/';
+import { debounce } from '../../utils/debounce';
 
 type Country = {
   name: string;
@@ -42,7 +43,7 @@ export class AutocompleteInputStore implements AutocompleteInputModel {
       },
     });
     this.maxSuggestions = maxSuggestions;
-    this.textInput.onChange = this.searchCountries;
+    this.textInput.onChange = debounce(this.searchCountries, 300);
     makeAutoObservable(this);
   }
 
